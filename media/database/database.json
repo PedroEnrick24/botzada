@@ -1,0 +1,211 @@
+{
+  "users": {
+    "555599641286@s.whatsapp.net": {
+      "exp": 559,
+      "estrellas": 20,
+      "registered": true,
+      "name": "Pedro",
+      "age": 15,
+      "regTime": 1744343255409,
+      "afk": -1,
+      "afkReason": "",
+      "language": "es",
+      "banned": false,
+      "useDocument": false,
+      "bank": 0,
+      "level": 0,
+      "role": "*𝗡𝗼𝘃𝗮𝘁𝗼 V* 🍄",
+      "muto": false,
+      "premium": false,
+      "premiumTime": 0,
+      "warn": 0,
+      "spam": 1744343396090,
+      "money": null,
+      "joincount": null,
+      "birth": "5 de diciembre de 2025",
+      "genre": "Hombre",
+      "description": "ूाीू"
+    },
+    "555597095964@s.whatsapp.net": {
+      "exp": 440,
+      "estrellas": 17,
+      "registered": true,
+      "name": "Pedro",
+      "age": 15,
+      "regTime": 1744343458029,
+      "afk": -1,
+      "afkReason": "",
+      "language": "es",
+      "banned": false,
+      "useDocument": false,
+      "bank": 0,
+      "level": 0,
+      "spam": 1744343628133,
+      "muto": false,
+      "premium": false,
+      "premiumTime": 0,
+      "warn": 0,
+      "role": "*𝗡𝗼𝘃𝗮𝘁𝗼 V* 🍄",
+      "money": null,
+      "joincount": null
+    }
+  },
+  "chats": {
+    "555599641286@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "delete": false,
+      "audios": false,
+      "detect": true,
+      "antiLink": false,
+      "antiLink2": false,
+      "onlyLatinos": false,
+      "autoresponder": false,
+      "antitoxic": false,
+      "simi": false,
+      "autolevelup": false,
+      "antiBot2": false,
+      "antiver": false,
+      "nsfw": false,
+      "autoAceptar": false,
+      "reaction": false,
+      "expired": 0
+    },
+    "555597095964@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": true,
+      "delete": false,
+      "audios": false,
+      "detect": true,
+      "antiLink": false,
+      "antiLink2": false,
+      "onlyLatinos": false,
+      "autoresponder": false,
+      "antitoxic": false,
+      "simi": false,
+      "autolevelup": false,
+      "antiBot2": false,
+      "antiver": false,
+      "nsfw": false,
+      "autoAceptar": false,
+      "reaction": false,
+      "expired": 0
+    },
+    "120363387375075395@newsletter": {
+      "isBanned": false,
+      "welcome": true,
+      "delete": false,
+      "audios": false,
+      "detect": true,
+      "antiLink": false,
+      "antiLink2": false,
+      "onlyLatinos": false,
+      "autoresponder": false,
+      "antitoxic": false,
+      "simi": false,
+      "autolevelup": false,
+      "antiBot2": false,
+      "antiver": false,
+      "nsfw": false,
+      "autoAceptar": false,
+      "reaction": false,
+      "expired": 0
+    }
+  },
+  "stats": {
+    "main-menu.js": {
+      "total": 4,
+      "success": 4,
+      "last": 1744343630923,
+      "lastSuccess": 1744343630923
+    },
+    "sticker-sticker.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744343433451,
+      "lastSuccess": 1744343433451
+    },
+    "main-menu+18.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744343193866,
+      "lastSuccess": 1744343193866
+    },
+    "buscador-xnxx.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744343226935,
+      "lastSuccess": 1744343226935
+    },
+    "rg-verificar.js": {
+      "total": 4,
+      "success": 4,
+      "last": 1744343458207,
+      "lastSuccess": 1744343458207
+    },
+    "rg-perfil.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744343446029,
+      "lastSuccess": 1744343446029
+    },
+    "rg-perfildates.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744343297880,
+      "lastSuccess": 1744343297880
+    },
+    "rg-setbirth.js": {
+      "total": 4,
+      "success": 4,
+      "last": 1744343345312,
+      "lastSuccess": 1744343345312
+    },
+    "rg-setgenre.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744343373170,
+      "lastSuccess": 1744343373170
+    },
+    "rg-setdescription.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744343396251,
+      "lastSuccess": 1744343396251
+    },
+    "main-menudl.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744343501362,
+      "lastSuccess": 1744343501362
+    },
+    "descargas-soundcloud.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744343570049,
+      "lastSuccess": 1744343570049
+    },
+    "main-menuto.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744343553807,
+      "lastSuccess": 1744343553807
+    }
+  },
+  "msgs": {},
+  "sticker": {},
+  "settings": {
+    "555599641286@s.whatsapp.net": {
+      "self": false,
+      "restrict": false,
+      "jadibotmd": true,
+      "autobio": 1744343078356,
+      "antiPrivate": false,
+      "autoread": false,
+      "autoread2": false,
+      "antiSpam": true,
+      "status": 0
+    }
+  },
+  "marriages": {}
+}
