@@ -2,70 +2,90 @@
  - https/Github.com/FzTeis
 */
 
-import axios from 'axios';
-import cheerio from 'cheerio';
+import axios from "axios";
+import cheerio from "cheerio";
 
 const searchAnime = async (query) => {
-    const url = `https://tioanime.com/directorio?q=${encodeURIComponent(query)}`;
+  const url = `https://tioanime.com/directorio?q=${encodeURIComponent(query)}`;
 
-    try {
-        const response = await axios.get(url);
-        const html = response.data;
-        const $ = cheerio.load(html);
-        const results = [];
+  try {
+    const response = await axios.get(url);
+    const html = response.data;
+    const $ = cheerio.load(html);
+    const results = [];
 
-        $('ul.animes li').each((_, element) => {
-            const name = $(element).find('h3.title').text().trim();
-            const id = $(element).find('a').attr('href').split('/').pop();
-            const image = $(element).find('img').attr('src');
-            const animeUrl = `https://tioanime.com${$(element).find('a').attr('href')}`; 
+    $("ul.animes li").each((_, element) => {
+      const name = $(element).find("h3.title").text().trim();
+      const id = $(element).find("a").attr("href").split("/").pop();
+      const image = $(element).find("img").attr("src");
+      const animeUrl = `https://tioanime.com${$(element).find("a").attr("href")}`;
 
-            results.push({
-                name,
-                id,
-                image: `https://tioanime.com${image}`,
-                url: animeUrl, 
-            });
-        });
+      results.push({
+        name,
+        id,
+        image: `https://tioanime.com${image}`,
+        url: animeUrl,
+      });
+    });
 
-        return results;
-    } catch (error) {
-        console.error('Error al buscar el anime:', error.message);
-        return { error: 'No se pudieron obtener los resultados' };
-    }
+    return results;
+  } catch (error) {
+    console.error("Erro ao buscar o anime:", error.message);
+    return { error: "Nao foi possivel obter os resultados" };
+  }
 };
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
-    if (!args[0]) {
-        return conn.reply(m.chat, `《★》Por favor, ingresa el nombre de un anime para buscar.`, m);
-    }
+  if (!args[0]) {
+    return conn.reply(
+      m.chat,
+      `《★》Por favor, digite o nome de un anime para buscar.`,
+      m
+    );
+  }
 
-    const results = await searchAnime(args[0]);
-    if (results.length === 0) {
-        return conn.reply(m.chat, `${emoji2} No se encontraron resultados.`, m);
-    }
+  const results = await searchAnime(args[0]);
+  if (results.length === 0) {
+    return conn.reply(m.chat, `${emoji2} Nao achei nenhum resultado.`, m);
+  }
 
-    const messages = [];
-    for (const { name, id, url, image } of results) {
-        messages.push([
-            `Informacion del anime`,
-            `Título: ${name}\n\n🔖 ID: ${id}\n*Usa este ID para descargar el anime o bien, selecciona una opción de la lista.*`,
-            image,
-            [],
-            [[`${url}`]],
-            [],
-            [{ title: `Selecciona para obtener la información del anime.`, rows: [
-                { title: name, description: 'Click para obtener información detallada del anime.', rowId: `${usedPrefix}animeinfo ${url}` }
-            ]}]
-        ]);
-    }
+  const messages = [];
+  for (const { name, id, url, image } of results) {
+    messages.push([
+      `Info do anime`,
+      `Título: ${name}\n\n🔖 ID: ${id}\n*Usa este ID para baixar o anime, Selecione uma opção da lista.*`,
+      image,
+      [],
+      [[`${url}`]],
+      [],
+      [
+        {
+          title: `Selecione para obter as informações do anime.`,
+          rows: [
+            {
+              title: name,
+              description: "Clique para obter informações detalhadas do anime.",
+              rowId: `${usedPrefix}animeinfo ${url}`,
+            },
+          ],
+        },
+      ],
+    ]);
+  }
 
-    await conn.sendCarousel(m.chat, '', `\`\`\`《★》¡Hola! A continuación te muestro la lista de animes encontrados.\`\`\``, "", messages, m);
-}
+  await conn.sendCarousel(
+    m.chat,
+    "",
+    `\`\`\`《★》Olá! A seguir, vou te mostrar a lista de animes encontrados.\`\`\``,
+    "",
+    messages,
+    m
+  );
+};
 
-handler.help = ['animesearch'];
-handler.command = ['animesearch', 'animes'];
-handler.tags = ['buscador'];
+handler.help = ["animesearch"];
+handler.command = ["animesearch", "animes"];
+handler.tags = ["buscador"];
 handler.premium = true;
 handler.register = true;
 handler.group = true;

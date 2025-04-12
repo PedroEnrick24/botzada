@@ -280,8 +280,8 @@ const connectionOptions = {
     opcion == "1"
       ? ["CrowBot-ST", "Edge", "20.0.04"]
       : methodCodeQR
-      ? ["CrowBot-ST", "Edge", "20.0.04"]
-      : ["Ubuntu", "Chrome", "20.0.04"],
+        ? ["CrowBot-ST", "Edge", "20.0.04"]
+        : ["Ubuntu", "Chrome", "20.0.04"],
   auth: {
     creds: state.creds,
     keys: makeCacheableSignalKeyStore(
@@ -755,25 +755,31 @@ function redefineConsoleMethod(methodName, filterStrings) {
     originalConsoleMethod.apply(console, arguments);
   };
 }
-setInterval(async () => {
-  if (stopped === "close" || !conn || !conn.user) return;
-  await clearTmp();
-  console.log(
-    chalk.bold.cyanBright(
-      `\n╭» 🟢 MULTIMEDIA 🟢\n│→ ARCHIVOS DE LA CARPETA TMP ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`
-    )
-  );
-}, 1000 * 60 * 4); // 4 min
+setInterval(
+  async () => {
+    if (stopped === "close" || !conn || !conn.user) return;
+    await clearTmp();
+    console.log(
+      chalk.bold.cyanBright(
+        `\n╭» 🟢 MULTIMEDIA 🟢\n│→ ARCHIVOS DE LA CARPETA TMP ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`
+      )
+    );
+  },
+  1000 * 60 * 4
+); // 4 min
 
-setInterval(async () => {
-  if (stopped === "close" || !conn || !conn.user) return;
-  await purgeOldFiles();
-  console.log(
-    chalk.bold.cyanBright(
-      `\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVOS RESIDUALES ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`
-    )
-  );
-}, 1000 * 60 * 10);
+setInterval(
+  async () => {
+    if (stopped === "close" || !conn || !conn.user) return;
+    await purgeOldFiles();
+    console.log(
+      chalk.bold.cyanBright(
+        `\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVOS RESIDUALES ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`
+      )
+    );
+  },
+  1000 * 60 * 10
+);
 
 _quickTest()
   .then(() => conn.logger.info(chalk.bold(`🍭  H E C H O\n`.trim())))

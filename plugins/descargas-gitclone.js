@@ -1,54 +1,71 @@
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
 
-let regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
+let regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i;
 let handler = async (m, { args, usedPrefix, command }) => {
   //https://wallpaperaccess.com/full/2040628.png'
-  let textbot = '🚩 ¡Bot Multi Device!'
+  let textbot = "🚩 ¡Bot Multi Device!";
   if (!args[0]) {
-    return conn.reply(m.chat, `🚩 Escribe la URL de un repositorio de GitHub que deseas descargar.`, m, rcanal)
+    return conn.reply(
+      m.chat,
+      `🚩 Digite a URL de um repositório do GitHub que você deseja baixar.`,
+      m,
+      rcanal
+    );
   }
   if (!regex.test(args[0])) {
-    return conn.reply(m.chat, `Verifica que la *URL* sea de GitHub`, m, rcanal).then(_ => m.react(error))
+    return conn
+      .reply(m.chat, `Verifique se a *URL* é do GitHub.`, m, rcanal)
+      .then((_) => m.react(error));
   }
-  let [_, user, repo] = args[0].match(regex) || []
-  let sanitizedRepo = repo.replace(/.git$/, '')
-  let repoUrl = `https://api.github.com/repos/${user}/${sanitizedRepo}`
-  let zipUrl = `https://api.github.com/repos/${user}/${sanitizedRepo}/zipball`
-  await m.react(rwait)
+  let [_, user, repo] = args[0].match(regex) || [];
+  let sanitizedRepo = repo.replace(/.git$/, "");
+  let repoUrl = `https://api.github.com/repos/${user}/${sanitizedRepo}`;
+  let zipUrl = `https://api.github.com/repos/${user}/${sanitizedRepo}/zipball`;
+  await m.react(rwait);
   try {
-  conn.reply(m.chat, wait, m, {
-  contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-  title: packname,
-  body: wm,
-  previewType: 0, thumbnail: icons,
-  sourceUrl: channel }}})
+    conn.reply(m.chat, wait, m, {
+      contextInfo: {
+        externalAdReply: {
+          mediaUrl: null,
+          mediaType: 1,
+          showAdAttribution: true,
+          title: packname,
+          body: wm,
+          previewType: 0,
+          thumbnail: icons,
+          sourceUrl: channel,
+        },
+      },
+    });
     let [repoResponse, zipResponse] = await Promise.all([
       fetch(repoUrl),
       fetch(zipUrl),
-    ])
-    let repoData = await repoResponse.json()
-    let filename = zipResponse.headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-    let type = zipResponse.headers.get('content-type')
-    let img = 'https://i.ibb.co/tLKyhgM/file.png'
-    let txt = `*乂  G I T H U B  -  D O W N L O A D*\n\n`
-       txt += `✩  *Nombre* : ${sanitizedRepo}\n`
-       txt += `✩  *Repositorio* : ${user}/${sanitizedRepo}\n`
-       txt += `✩  *Creador* : ${repoData.owner.login}\n`
-       txt += `✩  *Descripción* : ${repoData.description || 'Sin descripción disponible'}\n`
-       txt += `✩  *Url* : ${args[0]}\n\n`
-       txt += `⁖❤️꙰  *${textbot}*`
+    ]);
+    let repoData = await repoResponse.json();
+    let filename = zipResponse.headers
+      .get("content-disposition")
+      .match(/attachment; filename=(.*)/)[1];
+    let type = zipResponse.headers.get("content-type");
+    let img = "https://i.ibb.co/tLKyhgM/file.png";
+    let txt = `*乂  G I T H U B  -  D O W N L O A D*\n\n`;
+    txt += `✩  *Nome* : ${sanitizedRepo}\n`;
+    txt += `✩  *Repositorio* : ${user}/${sanitizedRepo}\n`;
+    txt += `✩  *Criador* : ${repoData.owner.login}\n`;
+    txt += `✩  *Descrição* : ${repoData.description || "Sem descrição disponível"}\n`;
+    txt += `✩  *Url* : ${args[0]}\n\n`;
+    txt += `⁖❤️꙰  *${textbot}*`;
 
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
-await conn.sendFile(m.chat, await zipResponse.buffer(), filename, null, m)
-await m.react(done)
+    await conn.sendFile(m.chat, img, "thumbnail.jpg", txt, m, null, rcanal);
+    await conn.sendFile(m.chat, await zipResponse.buffer(), filename, null, m);
+    await m.react(done);
   } catch {
-await m.react(error)
+    await m.react(error);
   }
-}
-handler.help = ['gitclone *<url git>*']
-handler.tags = ['descargas']
-handler.command = /^(gitclone)$/i
-handler.register = true 
+};
+handler.help = ["gitclone *<url git>*"];
+handler.tags = ["descargas"];
+handler.command = /^(gitclone)$/i;
+handler.register = true;
 handler.estrellas = 16;
 
-export default handler
+export default handler;

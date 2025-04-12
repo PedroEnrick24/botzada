@@ -5,15 +5,19 @@ import { JSDOM } from "jsdom";
 let handler = async (m, { conn, text, args, setting }) => {
   try {
     if (!text) {
-      return conn.reply(m.chat, `🍭 Ejemplo de uso: hent Boku ni Harem Sexfriend`, m);
+      return conn.reply(
+        m.chat,
+        `🍭 Exemplo de uso: hent Boku ni Harem Sexfriend`,
+        m
+      );
     }
 
-    m.react('🕒');
+    m.react("🕒");
 
-    if (text.includes('https://veohentai.com/ver/')) {
+    if (text.includes("https://veohentai.com/ver/")) {
       const videoInfo = await getInfo(text);
       if (!videoInfo) {
-        return conn.reply(m.chat, 'No se encontró información del video.', m);
+        return conn.reply(m.chat, "Não foi encontrada informação do vídeo.", m);
       }
 
       const videoUrl = videoInfo.videoUrl;
@@ -22,60 +26,70 @@ let handler = async (m, { conn, text, args, setting }) => {
       let cap = `
 ◜ Hentai - Download ◞
 
-≡ ✨ \`Title :\` ${videoInfo.title}
-≡ 🍫 \`Views :\` ${videoInfo.views}
-≡ 🌀 \`Likes :\` ${videoInfo.likes}
-≡ 🫐 \`Peso :\` ${peso}
-≡ 🍄 \`Dislikes :\` ${videoInfo.dislikes}
-≡ 🌷 \`Link :\` ${text}
+≡ ✨ \`Título:\` ${videoInfo.title}  
+≡ 🍫 \`Visualizações:\` ${videoInfo.views}  
+≡ 🌀 \`Curtidas:\` ${videoInfo.likes}  
+≡ 🫐 \`Tamanho:\` ${peso}  
+≡ 🍄 \`Descurtidas:\` ${videoInfo.dislikes}  
+≡ 🌷 \`Link:\` ${text}
 `;
 
-      conn.sendMessage(m.chat, { text: cap,
-        contextInfo: {
-          externalAdReply: {
-            title: videoInfo.title,
-            body: "Descargar video",
-            thumbnail: imagen1,
-            sourceUrl: text,
-            mediaType: 1,
-            renderLargerThumbnail: true
-          }
-        }
-      }, { quoted: m });
+      conn.sendMessage(
+        m.chat,
+        {
+          text: cap,
+          contextInfo: {
+            externalAdReply: {
+              title: videoInfo.title,
+              body: "Baixar video",
+              thumbnail: imagen1,
+              sourceUrl: text,
+              mediaType: 1,
+              renderLargerThumbnail: true,
+            },
+          },
+        },
+        { quoted: m }
+      );
 
-      await conn.sendFile(m.chat, videoUrl, `${videoInfo.title}.mp4`, '', m, {
-        document: true
+      await conn.sendFile(m.chat, videoUrl, `${videoInfo.title}.mp4`, "", m, {
+        document: true,
       });
-      m.react('☑️');
+      m.react("☑️");
     } else {
       const results = await searchHentai(text);
       if (results.length === 0) {
-        return conn.reply(m.chat, 'No se encontraron resultados.', m);
+        return conn.reply(m.chat, "Não foram encontrados resultados.", m);
       }
 
       let cap = `◜ Hentai - Search ◞\n`;
 
       results.slice(0, 15).forEach((res, index) => {
-        cap += `\n\`${index + 1}\`\n≡ 🍭 \`Title :\` ${res.titulo}\n≡ 🍫 \`Link :\` ${res.url}\n`;
+        cap += `\n\`${index + 1}\`\n≡ 🍭 \`Título :\` ${res.titulo}\n≡ 🍫 \`Link :\` ${res.url}\n`;
       });
 
-      conn.sendMessage(m.chat, { text: cap,
-        contextInfo: {
-          externalAdReply: {
-            title: "Resultados de búsqueda",
-            body: "Veohentai",
-            thumbnail: imagen1,
-            sourceUrl: redes,
-            mediaType: 1,
-            renderLargerThumbnail: true
-          }
-        }
-      }, { quoted: m });
+      conn.sendMessage(
+        m.chat,
+        {
+          text: cap,
+          contextInfo: {
+            externalAdReply: {
+              title: "Resultados de búsqueda",
+              body: "Veohentai",
+              thumbnail: imagen1,
+              sourceUrl: redes,
+              mediaType: 1,
+              renderLargerThumbnail: true,
+            },
+          },
+        },
+        { quoted: m }
+      );
 
       m.react("🔞");
     }
   } catch (err) {
-    return conn.reply(m.chat, 'Error en la ejecución.\n\n' + err, m);
+    return conn.reply(m.chat, "Erro na execução.\n\n" + err, m);
   }
 };
 
@@ -91,7 +105,8 @@ async function searchHentai(text) {
 
   try {
     const response = await fetch(base);
-    if (!response.ok) throw new Error(`Error en la petición: ${response.status}`);
+    if (!response.ok)
+      throw new Error(`Erro na solicitação: ${response.status}`);
 
     const html = await response.text();
     const $ = cheerio.load(html);
@@ -117,7 +132,7 @@ async function searchHentai(text) {
 async function getInfo(url) {
   try {
     const response = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0" }
+      headers: { "User-Agent": "Mozilla/5.0" },
     });
 
     const data = await response.text();
@@ -132,21 +147,27 @@ async function getInfo(url) {
       const videoHtml = await videoResponse.text();
       const match = videoHtml.match(/data-id="\/player\.php\?u=([^&]*)/);
 
-      if (!match) throw new Error("No se encontró la URL del video");
+      if (!match) throw new Error("Nao foi encontrado a URL do video");
 
       const videoUrl = atob(match[1]);
 
-      const title = document.querySelector("h1.text-whitegray.text-lg").textContent.trim();
-      const views = document.querySelector("h4.text-whitelite.text-sm").textContent.trim();
+      const title = document
+        .querySelector("h1.text-whitegray.text-lg")
+        .textContent.trim();
+      const views = document
+        .querySelector("h4.text-whitelite.text-sm")
+        .textContent.trim();
       const likes = document.querySelector("#num-like").textContent.trim();
-      const dislikes = document.querySelector("#num-dislike").textContent.trim();
+      const dislikes = document
+        .querySelector("#num-dislike")
+        .textContent.trim();
 
       return {
         videoUrl,
         title,
         views,
         likes,
-        dislikes
+        dislikes,
       };
     } else {
       return null;
@@ -159,16 +180,16 @@ async function getInfo(url) {
 
 async function size(url) {
   try {
-    const res = await fetch(url, { method: 'HEAD' });
-    const size = parseInt(res.headers.get('content-length'), 10);
+    const res = await fetch(url, { method: "HEAD" });
+    const size = parseInt(res.headers.get("content-length"), 10);
 
-    if (!size) throw new Error('Size not available');
+    if (!size) throw new Error("Size not available");
 
-    if (size >= 1e9) return (size / 1e9).toFixed(2) + ' GB';
-    if (size >= 1e6) return (size / 1e6).toFixed(2) + ' MB';
-    if (size >= 1e3) return (size / 1e3).toFixed(2) + ' KB';
-    return size + ' Bytes';
+    if (size >= 1e9) return (size / 1e9).toFixed(2) + " GB";
+    if (size >= 1e6) return (size / 1e6).toFixed(2) + " MB";
+    if (size >= 1e3) return (size / 1e3).toFixed(2) + " KB";
+    return size + " Bytes";
   } catch (err) {
-    return 'Error: ' + err.message;
+    return "Error: " + err.message;
   }
 }

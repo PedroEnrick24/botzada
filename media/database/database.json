@@ -1,8 +1,8 @@
 {
   "users": {
     "555599641286@s.whatsapp.net": {
-      "exp": 559,
-      "estrellas": 20,
+      "exp": 565,
+      "estrellas": 20000000000000,
       "registered": true,
       "name": "Pedro",
       "age": 15,
@@ -27,8 +27,8 @@
       "description": "ूाीू"
     },
     "555597095964@s.whatsapp.net": {
-      "exp": 440,
-      "estrellas": 17,
+      "exp": 1476,
+      "estrellas": 496,
       "registered": true,
       "name": "Pedro",
       "age": 15,
@@ -40,14 +40,46 @@
       "useDocument": false,
       "bank": 0,
       "level": 0,
-      "spam": 1744343628133,
+      "spam": 1744420685733,
       "muto": false,
       "premium": false,
       "premiumTime": 0,
       "warn": 0,
       "role": "*𝗡𝗼𝘃𝗮𝘁𝗼 V* 🍄",
-      "money": null,
-      "joincount": null
+      "money": 200,
+      "joincount": null,
+      "lastclaim": 1744419970569
+    },
+    "558481024779@s.whatsapp.net": {
+      "exp": 2,
+      "estrellas": 10,
+      "registered": false,
+      "name": "t",
+      "age": -1,
+      "regTime": -1,
+      "afk": -1,
+      "afkReason": "",
+      "language": "es",
+      "banned": false,
+      "useDocument": false,
+      "bank": 0,
+      "level": 0
+    },
+    "553195372278@s.whatsapp.net": {
+      "exp": 1,
+      "estrellas": 10,
+      "registered": false,
+      "name": "Fernanda",
+      "age": -1,
+      "regTime": -1,
+      "afk": -1,
+      "afkReason": "",
+      "language": "es",
+      "banned": false,
+      "useDocument": false,
+      "bank": 0,
+      "level": 0,
+      "role": "*𝗡𝗼𝘃𝗮𝘁𝗼 V* 🍄"
     }
   },
   "chats": {
@@ -110,26 +142,86 @@
       "autoAceptar": false,
       "reaction": false,
       "expired": 0
+    },
+    "120363415902774029@g.us": {
+      "isBanned": false,
+      "welcome": true,
+      "delete": false,
+      "audios": false,
+      "detect": true,
+      "antiLink": false,
+      "antiLink2": false,
+      "onlyLatinos": false,
+      "autoresponder": false,
+      "antitoxic": false,
+      "simi": false,
+      "autolevelup": false,
+      "antiBot2": false,
+      "antiver": false,
+      "nsfw": false,
+      "autoAceptar": false,
+      "reaction": false,
+      "expired": 0
+    },
+    "120363379899699655@g.us": {
+      "isBanned": false,
+      "welcome": true,
+      "delete": false,
+      "audios": false,
+      "detect": true,
+      "antiLink": false,
+      "antiLink2": false,
+      "onlyLatinos": false,
+      "autoresponder": false,
+      "antitoxic": false,
+      "simi": false,
+      "autolevelup": false,
+      "antiBot2": false,
+      "antiver": false,
+      "nsfw": true,
+      "autoAceptar": false,
+      "reaction": false,
+      "expired": 0
+    },
+    "120363416844215700@g.us": {
+      "isBanned": false,
+      "welcome": true,
+      "delete": false,
+      "audios": false,
+      "detect": true,
+      "antiLink": false,
+      "antiLink2": false,
+      "onlyLatinos": false,
+      "autoresponder": false,
+      "antitoxic": false,
+      "simi": false,
+      "autolevelup": false,
+      "antiBot2": false,
+      "antiver": false,
+      "nsfw": false,
+      "autoAceptar": false,
+      "reaction": false,
+      "expired": 0
     }
   },
   "stats": {
     "main-menu.js": {
-      "total": 4,
-      "success": 4,
-      "last": 1744343630923,
-      "lastSuccess": 1744343630923
+      "total": 8,
+      "success": 8,
+      "last": 1744420689056,
+      "lastSuccess": 1744420689056
     },
     "sticker-sticker.js": {
-      "total": 3,
-      "success": 3,
-      "last": 1744343433451,
-      "lastSuccess": 1744343433451
+      "total": 6,
+      "success": 6,
+      "last": 1744420018424,
+      "lastSuccess": 1744420018424
     },
     "main-menu+18.js": {
-      "total": 2,
-      "success": 2,
-      "last": 1744343193866,
-      "lastSuccess": 1744343193866
+      "total": 3,
+      "success": 3,
+      "last": 1744419602580,
+      "lastSuccess": 1744419602580
     },
     "buscador-xnxx.js": {
       "total": 2,
@@ -190,6 +282,54 @@
       "success": 2,
       "last": 1744343553807,
       "lastSuccess": 1744343553807
+    },
+    "info-ping.js": {
+      "total": 8,
+      "success": 8,
+      "last": 1744420664329,
+      "lastSuccess": 1744420664329
+    },
+    "emox-cum.js": {
+      "total": 4,
+      "success": 4,
+      "last": 1744419756123,
+      "lastSuccess": 1744419756123
+    },
+    "gc-kick.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744419643962,
+      "lastSuccess": 1744419643962
+    },
+    "config-nable.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744419749770,
+      "lastSuccess": 1744419749770
+    },
+    "rpg-cartera.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744419954106,
+      "lastSuccess": 1744419954106
+    },
+    "rpg-regalo.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744419983262,
+      "lastSuccess": 1744419983262
+    },
+    "gc-link.js": {
+      "total": 3,
+      "success": 3,
+      "last": 1744420120862,
+      "lastSuccess": 1744420120862
+    },
+    "gc-totag.js": {
+      "total": 2,
+      "success": 2,
+      "last": 1744420214654,
+      "lastSuccess": 1744420214654
     }
   },
   "msgs": {},
@@ -199,7 +339,7 @@
       "self": false,
       "restrict": false,
       "jadibotmd": true,
-      "autobio": 1744343078356,
+      "autobio": 1744419472406,
       "antiPrivate": false,
       "autoread": false,
       "autoread2": false,
